@@ -83,21 +83,25 @@ type SocialLink = {
 
 export const PROJECTS: Project[] = [
   {
-    name: 'Motion Primitives Pro',
-    description:
-      'Advanced components and templates to craft beautiful websites.',
-    link: 'https://pro.motion-primitives.com/',
-    thumbnail:
-      'https://fastly.picsum.photos/id/637/1280/720.jpg?hmac=thHIAWnzsQM-rDXz2536i2DUUVv2w7P2oKbQuWgHCa0',
+    name: 'Forward Sports Redesign',
+    description: 'Redesigned homepage for Forward Sports',
+    link: 'https://forward-sports-redesign.vercel.app/',
+    thumbnail: '/forward-sports-redesign.png',
     id: 'project1',
   },
   {
-    name: 'Motion Primitives',
-    description: 'UI kit to make beautiful, animated interfaces.',
-    link: 'https://motion-primitives.com/',
-    thumbnail:
-      'https://fastly.picsum.photos/id/195/1280/720.jpg?hmac=oq0om8oDhV0_Rfi6TlVE7_sIbG9zA2jdllzWb3W68Bw',
+    name: 'Dierentuin',
+    description: 'C# full-stack zoo management application',
+    link: 'https://github.com/Djimairo7/Dierentuin',
+    thumbnail: '/dierentuin.png',
     id: 'project2',
+  },
+  {
+    name: 'F1 Registration',
+    description: 'F1 tracking app with leaderboard & social capabilities',
+    link: 'https://github.com/TiemcoM/F1Registration',
+    thumbnail: 'f1.png',
+    id: 'project3',
   },
 ]
 
