@@ -45,12 +45,14 @@ function ProjectThumbnail({ src }: ProjectThumbnailProps) {
         duration: 0.3,
       }}
     >
-      <MorphingDialogTrigger>
-        <MorphingDialogImage
-          src={src}
-          alt="Project Thumbnail"
-          className="rounded-xl"
-        />
+      <MorphingDialogTrigger className="block w-full">
+        <div className="relative aspect-video w-full overflow-hidden rounded-xl">
+          <MorphingDialogImage
+            src={src}
+            alt="Project Thumbnail"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
         <MorphingDialogContent className="relative">
