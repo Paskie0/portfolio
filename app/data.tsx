@@ -83,25 +83,32 @@ type SocialLink = {
 
 export const PROJECTS: Project[] = [
   {
+    name: 'NoteForge',
+    description: 'Full-Stack note-taking app',
+    link: 'https://noteforge-gold.vercel.app/',
+    thumbnail: '/noteforge.png',
+    id: 'project1',
+  },
+  {
     name: 'Forward Sports Redesign',
     description: 'Redesigned homepage for Forward Sports',
     link: 'https://forward-sports-redesign.vercel.app/',
     thumbnail: '/forward-sports-redesign.png',
-    id: 'project1',
+    id: 'project2',
   },
   {
     name: 'Dierentuin',
     description: 'C# full-stack zoo management application',
     link: 'https://github.com/Djimairo7/Dierentuin',
     thumbnail: '/dierentuin.png',
-    id: 'project2',
+    id: 'project3',
   },
   {
     name: 'F1 Registration',
     description: 'F1 tracking app with leaderboard & social capabilities',
     link: 'https://github.com/TiemcoM/F1Registration',
     thumbnail: 'f1.png',
-    id: 'project3',
+    id: 'project4',
   },
 ]
 
