@@ -85,14 +85,14 @@ export const PROJECTS: Project[] = [
   {
     name: 'NoteForge',
     description: 'Full-Stack note-taking app',
-    link: 'https://noteforge-gold.vercel.app/',
+    link: 'https://noteforge.paskie.dev',
     thumbnail: '/noteforge.png',
     id: 'project1',
   },
   {
     name: 'Forward Sports Redesign',
     description: 'Redesigned homepage for Forward Sports',
-    link: 'https://forward-sports-redesign.vercel.app/',
+    link: 'https://forward-sports-redesign.vercel.app',
     thumbnail: '/forward-sports-redesign.png',
     id: 'project2',
   },
