@@ -1,65 +1,67 @@
-import Image from "next/image";
+import {PROJECTS} from "@/data/data";
+import Project from "@/components/project";
+import {WORK} from "@/data/data";
+import Work from "@/components/work";
+import RandomGame from "@/components/randomGame";
+import Location from "@/components/location";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="max-w-5xl mx-auto grid gap-8 px-8 justify-center">
+      <div className="grid gap-8">
+        <div className="grid">
+          <span className="text-4xl">Pascal</span>
+          <span className="italic">Software Engineer</span>
+          <Location />
+          <RandomGame />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+      <div className="grid md:grid-cols-2 gap-16">
+        <div className="grid grid-rows-[min-content_1fr] gap-2">
+          <span className="text-xl">Work</span>
+          <div className="flex flex-col gap-4">
+            {WORK.map((work) => (
+              <Work key={work.id} title={work.name} description={work.description} url={work.link} year={work.year} />
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+        <div className="grid grid-rows-[min-content_1fr_min-content] gap-2">
+          <span className="text-xl">Projects</span>
+          <div className="flex flex-col gap-4">
+            {PROJECTS.slice(0, 5).map((project) => (
+              <Project key={project.id} title={project.name} description={project.description} url={project.link} />
+            ))}
+            <Link href="https://github.com/Paskie0" target="_blank" className="hover:bg-red-900/60">
+              View all projects -&gt;
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="col-span-full grid gap-4">
+        <span className="text-xl">Blog - Under Construction</span>
+        <Link
+          href="/"
+          className="flex justify-between items-center p-2 border border-dotted border-muted-foreground hover:bg-red-900/60 overflow-hidden">
+          <span className="shrink-0">01/01/2026</span>
+          <span className="truncate min-w-0 ml-8 text-right flex-1">Lorem ipsum dolor sit amet.</span>
+        </Link>
+        <Link
+          href="/"
+          className="flex justify-between items-center p-2 border border-dotted border-muted-foreground hover:bg-red-900/60 overflow-hidden">
+          <span className="shrink-0">01/01/2027</span>
+          <span className="truncate min-w-0 ml-8 text-right flex-1">Lorem ipsum dolor sit amet.</span>
+        </Link>
+        <Link
+          href="/"
+          className="flex justify-between items-center p-2 border border-dotted border-muted-foreground hover:bg-red-900/60 overflow-hidden">
+          <span className="shrink-0">01/01/2028</span>
+          <span className="truncate min-w-0 ml-8 text-right flex-1">Lorem ipsum dolor sit amet.</span>
+        </Link>
+      </div>
+      <div className="col-span-full">
+        <span className="text-xl">Stuff - Under Construction</span>
+      </div>
+    </main>
   );
 }
