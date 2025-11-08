@@ -12,7 +12,7 @@ export default function Location() {
   ) : tempError ? (
     <span>No Signal...</span>
   ) : (
-    <Link href={`https://en.wikipedia.org/wiki/${CITY}`} target="_blank" className="w-fit hover:bg-accent-fun/75">
+    <Link href={`https://en.wikipedia.org/wiki/${CITY}`} className="w-fit hover:bg-accent-fun/75">
       {CITY} • {temperature}°C
     </Link>
   );

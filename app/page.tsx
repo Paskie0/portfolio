@@ -32,7 +32,7 @@ export default function Home() {
             {PROJECTS.slice(0, 5).map((project) => (
               <Project key={project.id} title={project.name} description={project.description} url={project.link} />
             ))}
-            <Link href="https://github.com/Paskie0" target="_blank" className="hover:bg-accent-fun/75">
+            <Link href="https://github.com/Paskie0" className="hover:bg-accent-fun/75">
               View all projects -&gt;
             </Link>
           </div>

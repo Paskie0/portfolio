@@ -13,10 +13,7 @@ export default function RandomGame() {
     <span>The dice landed on a corner...</span>
   ) : (
     <div className="flex gap-2 items-center">
-      <Link
-        href={`https://store.steampowered.com/app/${randomGame.appid}`}
-        target="_blank"
-        className="hover:bg-accent-fun/75">
+      <Link href={`https://store.steampowered.com/app/${randomGame.appid}`} className="hover:bg-accent-fun/75">
         {randomGame.name}
       </Link>
       <span className="select-none">•</span>
