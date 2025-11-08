@@ -1,4 +1,4 @@
-import Signature from "@/public/Signature.jsx";
+import Signature from "@/public/Signature";
 import Link from "next/link";
 import Menu from "@/components/menu";
 
