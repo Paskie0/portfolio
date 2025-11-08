@@ -3,7 +3,7 @@
 import {useState} from "react";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {Button} from "@/components/ui/button";
-import MenuIcon from "@/public/MenuIcon";
+import MenuIcon from "@/components/icons/MenuIcon";
 import Link from "next/link";
 
 export default function DropDownMenu() {

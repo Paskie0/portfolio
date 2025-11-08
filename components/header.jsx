@@ -1,4 +1,4 @@
-import Signature from "@/public/Signature";
+import Signature from "@/components/icons/Signature";
 import Link from "next/link";
 import Menu from "@/components/menu";
 

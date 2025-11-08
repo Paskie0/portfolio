@@ -2,7 +2,7 @@
 
 import {useFunData} from "@/hooks/useFunData";
 import Link from "next/link";
-import Dice from "@/public/Dice";
+import Dice from "@/components/icons/Dice";
 
 export default function RandomGame() {
   const {randomGame, gameLoading, gameError, refetchGame} = useFunData();
