@@ -12,14 +12,14 @@ export default function Home() {
       <div className="grid gap-8">
         <div className="grid">
           <span className="text-4xl">Pascal</span>
-          <span className="italic">Software Engineer</span>
+          <span className="italic">Software Developer</span>
           <Location />
           <RandomGame />
         </div>
       </div>
       <div className="grid md:grid-cols-2 gap-16">
         <div className="grid grid-rows-[min-content_1fr] gap-2">
-          <span className="text-xl">Work</span>
+          <span className="text-xl text-accent-fun font-bold">Work</span>
           <div className="flex flex-col gap-4">
             {WORK.map((work) => (
               <Work key={work.id} title={work.name} description={work.description} url={work.link} year={work.year} />
@@ -27,40 +27,40 @@ export default function Home() {
           </div>
         </div>
         <div className="grid grid-rows-[min-content_1fr_min-content] gap-2">
-          <span className="text-xl">Projects</span>
+          <span className="text-xl text-accent-fun font-bold">Projects</span>
           <div className="flex flex-col gap-4">
             {PROJECTS.slice(0, 5).map((project) => (
               <Project key={project.id} title={project.name} description={project.description} url={project.link} />
             ))}
-            <Link href="https://github.com/Paskie0" target="_blank" className="hover:bg-red-900/60">
+            <Link href="https://github.com/Paskie0" target="_blank" className="hover:bg-accent-fun/75">
               View all projects -&gt;
             </Link>
           </div>
         </div>
       </div>
       <div className="col-span-full grid gap-4">
-        <span className="text-xl">Blog - Under Construction</span>
+        <span className="text-xl text-accent-fun font-bold">Blog - Under Construction</span>
         <Link
           href="/"
-          className="flex justify-between items-center p-2 border border-dotted border-muted-foreground hover:bg-red-900/60 overflow-hidden">
+          className="flex justify-between items-center p-2 border border-dotted border-muted-foreground hover:bg-accent-fun/75 overflow-hidden">
           <span className="shrink-0">01/01/2026</span>
           <span className="truncate min-w-0 ml-8 text-right flex-1">Lorem ipsum dolor sit amet.</span>
         </Link>
         <Link
           href="/"
-          className="flex justify-between items-center p-2 border border-dotted border-muted-foreground hover:bg-red-900/60 overflow-hidden">
+          className="flex justify-between items-center p-2 border border-dotted border-muted-foreground hover:bg-accent-fun/75 overflow-hidden">
           <span className="shrink-0">01/01/2027</span>
           <span className="truncate min-w-0 ml-8 text-right flex-1">Lorem ipsum dolor sit amet.</span>
         </Link>
         <Link
           href="/"
-          className="flex justify-between items-center p-2 border border-dotted border-muted-foreground hover:bg-red-900/60 overflow-hidden">
+          className="flex justify-between items-center p-2 border border-dotted border-muted-foreground hover:bg-accent-fun/75 overflow-hidden">
           <span className="shrink-0">01/01/2028</span>
           <span className="truncate min-w-0 ml-8 text-right flex-1">Lorem ipsum dolor sit amet.</span>
         </Link>
       </div>
       <div className="col-span-full">
-        <span className="text-xl">Stuff - Under Construction</span>
+        <span className="text-xl text-accent-fun font-bold">Stuff - Under Construction</span>
       </div>
     </main>
   );

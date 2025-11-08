@@ -99,6 +99,7 @@ export const EXCLUDED_GAMES = [
   "Assassin's Creed Mirage",
   "Deadlock",
   "Assassin's Creed Shadows",
+  "Little Nightmares Enhanced Edition",
 ];
 
 export const PROJECTS = [

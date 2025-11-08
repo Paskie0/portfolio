@@ -2,6 +2,7 @@
 
 import {useFunData} from "@/hooks/useFunData";
 import Link from "next/link";
+import Dice from "@/public/Dice";
 
 export default function RandomGame() {
   const {randomGame, gameLoading, gameError, refetchGame} = useFunData();
@@ -11,16 +12,19 @@ export default function RandomGame() {
   ) : gameError ? (
     <span>The dice landed on a corner...</span>
   ) : (
-    <div>
+    <div className="flex gap-2 items-center">
       <Link
         href={`https://store.steampowered.com/app/${randomGame.appid}`}
         target="_blank"
-        className="hover:bg-red-500/75 text-red-500 hover:text-foreground">
+        className="hover:bg-accent-fun/75">
         {randomGame.name}
       </Link>
-      <span className="select-none"> • </span>
-      <button onClick={refetchGame} className="hover:bg-red-500/75 cursor-pointer">
+      <span className="select-none">•</span>
+      <button
+        onClick={refetchGame}
+        className="text-accent-fun font-bold hover:bg-accent-fun/75 hover:text-muted-foreground cursor-pointer flex items-center gap-1">
         Reroll
+        <Dice className="text-muted-foreground" />
       </button>
     </div>
   );
