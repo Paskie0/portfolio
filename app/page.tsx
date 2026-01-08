@@ -38,29 +38,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="col-span-full grid gap-4">
-        <span className="text-xl text-accent-fun font-bold">Blog - Under Construction</span>
-        <Link
-          href="/"
-          className="flex justify-between items-center p-2 border border-dotted border-muted-foreground hover:bg-accent-fun/75 overflow-hidden">
-          <span className="shrink-0">01/01/2026</span>
-          <span className="truncate min-w-0 ml-8 text-right flex-1">Lorem ipsum dolor sit amet.</span>
-        </Link>
-        <Link
-          href="/"
-          className="flex justify-between items-center p-2 border border-dotted border-muted-foreground hover:bg-accent-fun/75 overflow-hidden">
-          <span className="shrink-0">01/01/2027</span>
-          <span className="truncate min-w-0 ml-8 text-right flex-1">Lorem ipsum dolor sit amet.</span>
-        </Link>
-        <Link
-          href="/"
-          className="flex justify-between items-center p-2 border border-dotted border-muted-foreground hover:bg-accent-fun/75 overflow-hidden">
-          <span className="shrink-0">01/01/2028</span>
-          <span className="truncate min-w-0 ml-8 text-right flex-1">Lorem ipsum dolor sit amet.</span>
-        </Link>
-      </div>
       <div className="col-span-full">
-        <span className="text-xl text-accent-fun font-bold">Stuff - Under Construction</span>
+        <span className="text-xl text-accent-fun font-bold">Other Stuff - Under Construction</span>
       </div>
     </main>
   );
