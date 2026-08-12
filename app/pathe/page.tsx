@@ -2,7 +2,7 @@
 
 import {useEffect, useMemo, useState} from "react";
 import {format, parse} from "date-fns";
-import {CalendarIcon, ChevronDown} from "lucide-react";
+import {CalendarIcon} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {Calendar} from "@/components/ui/calendar";
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
@@ -68,6 +68,11 @@ export default function PathePage() {
       .catch(() => setAvailability(null));
   }, [movieSlug]);
 
+  const cinemaOptions = useMemo(
+    () => cinemas.map((cinema) => ({value: cinema.slug, label: cinema.name})),
+    [cinemas]
+  );
+
   const showOptions = useMemo(
     () => shows.map((show) => ({value: show.slug, label: show.title})),
     [shows]
@@ -131,24 +136,18 @@ export default function PathePage() {
         <span>Loading Pathé data...</span>
       ) : (
         <form onSubmit={handleSubmit} className="grid gap-4 w-full max-w-md min-w-0">
-          <label className="grid gap-1 min-w-0">
-            <span className="text-sm font-bold">Cinema</span>
-            <div className="relative w-full min-w-0">
-              <select
-                className="appearance-none border border-dotted border-muted-foreground p-2 pr-8 bg-transparent w-full min-w-0"
-                value={cinemaSlug}
-                onChange={(e) => setCinemaSlug(e.target.value)}
-              >
-                <option value="">Select a cinema</option>
-                {cinemas.map((cinema) => (
-                  <option key={cinema.slug} value={cinema.slug}>
-                    {cinema.name}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-            </div>
-          </label>
+          <div className="grid gap-1 min-w-0">
+            <label htmlFor="cinema-combobox" className="text-sm font-bold">
+              Cinema
+            </label>
+            <Combobox
+              id="cinema-combobox"
+              options={cinemaOptions}
+              value={cinemaSlug}
+              onChange={setCinemaSlug}
+              placeholder="Search cinemas..."
+            />
+          </div>
 
           <div className="grid gap-1 min-w-0">
             <label htmlFor="movie-combobox" className="text-sm font-bold">
