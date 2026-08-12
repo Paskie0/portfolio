@@ -164,11 +164,20 @@ export default function PathePage() {
           </div>
 
           {cinemaSlug && movieSlug && (
-            <span className="text-sm italic">
-              {alreadyPlayingDates.length > 0
-                ? `Already showing at ${selectedCinema?.name} on: ${alreadyPlayingDates.join(", ")}`
-                : `Not currently scheduled at ${selectedCinema?.name}`}
-            </span>
+            <div className="text-sm italic">
+              {alreadyPlayingDates.length > 0 ? (
+                <>
+                  <span>Already showing at {selectedCinema?.name} on:</span>
+                  <ul className="columns-2 list-disc pl-5 marker:text-muted-foreground">
+                    {alreadyPlayingDates.map((date) => (
+                      <li key={date}>{format(parse(date, DATE_FORMAT, new Date()), "dd-MM-yyyy")}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <span>Not currently scheduled at {selectedCinema?.name}</span>
+              )}
+            </div>
           )}
 
           <div className="grid gap-1 min-w-0">
