@@ -237,7 +237,10 @@ export default function PathePage() {
       )}
 
       <div className="grid gap-2">
-        <span className="text-xl text-accent-fun font-bold">Your active watches</span>
+        <div className="grid gap-0">
+          <span className="text-xl text-accent-fun font-bold">Your active watches</span>
+          <span className="text-sm italic text-muted-foreground">Checks every 15 minutes</span>
+        </div>
         {watches.length === 0 ? (
           <span className="italic">No active watches yet</span>
         ) : (
