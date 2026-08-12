@@ -1,7 +1,8 @@
 "use client";
 
 import {useEffect, useMemo, useState} from "react";
-import {format, parse} from "date-fns";
+import { format, parse } from "date-fns";
+import Link from "next/link";
 import {CalendarIcon} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {Calendar} from "@/components/ui/calendar";
@@ -27,6 +28,10 @@ const DATE_FORMAT = "yyyy-MM-dd";
 const tomorrowDate = new Date();
 tomorrowDate.setDate(tomorrowDate.getDate() + 1);
 tomorrowDate.setHours(0, 0, 0, 0);
+
+const maxDate = new Date();
+maxDate.setMonth(maxDate.getMonth() + 3);
+maxDate.setHours(0, 0, 0, 0);
 
 export default function PathePage() {
   const [cinemas, setCinemas] = useState<Cinema[]>([]);
@@ -169,7 +174,16 @@ export default function PathePage() {
                   <span>Already showing at {selectedCinema?.name} on:</span>
                   <ul className="columns-2 list-disc pl-5 marker:text-muted-foreground">
                     {alreadyPlayingDates.map((date) => (
-                      <li key={date}>{format(parse(date, DATE_FORMAT, new Date()), "dd-MM-yyyy")}</li>
+                      <li key={date}>
+                        <Link
+                          href={`https://www.pathe.nl/nl/films/${selectedShow?.slug}/filters/date-${date}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-accent-fun"
+                        >
+                          {format(parse(date, DATE_FORMAT, new Date()), "dd-MM-yyyy")}
+                        </Link>
+                      </li>
                     ))}
                   </ul>
                 </>
@@ -200,7 +214,7 @@ export default function PathePage() {
                   mode="single"
                   selected={selectedDate}
                   defaultMonth={selectedDate ?? tomorrowDate}
-                  disabled={[{before: tomorrowDate}, ...alreadyPlayingDateObjects]}
+                  disabled={[{before: tomorrowDate}, {after: maxDate}, ...alreadyPlayingDateObjects]}
                   onSelect={(date) => {
                     if (!date) return;
                     setTargetDate(format(date, DATE_FORMAT));
@@ -217,7 +231,7 @@ export default function PathePage() {
           </div>
 
           <label className="grid gap-1 min-w-0">
-            <span className="text-sm font-bold">ntfy.sh topic</span>
+            <p className="text-sm font-bold"><span>Topic</span> (<Link href="https://ntfy.sh/" className="text-accent-fun">ntfy.sh</Link>) </p>
             <input
               type="text"
               placeholder="your-ntfy-topic"

@@ -27,7 +27,17 @@ export async function GET(request) {
   }
 
   try {
-    const watches = await listWatches();
+    const today = new Date().toISOString().slice(0, 10);
+    const allWatches = await listWatches();
+
+    // Drop anything whose date has already passed so the store doesn't
+    // grow unbounded — no point checking availability for a stale watch.
+    const expired = allWatches.filter((watch) => watch.targetDate < today);
+    for (const watch of expired) {
+      await deleteWatch(watch.id);
+    }
+
+    const watches = allWatches.filter((watch) => watch.targetDate >= today);
     const watchesByMovie = new Map();
     for (const watch of watches) {
       if (!watchesByMovie.has(watch.movieSlug)) {
@@ -51,7 +61,7 @@ export async function GET(request) {
       }
     }
 
-    return Response.json({checked: watches.length, notified});
+    return Response.json({checked: watches.length, expired: expired.length, notified});
   } catch (error) {
     console.error("Cron check error:", error);
     return Response.json({error: "Failed to check watches"}, {status: 500});
