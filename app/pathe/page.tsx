@@ -124,7 +124,7 @@ export default function PathePage() {
     <main className="w-full max-w-5xl justify-items-center mx-auto grid gap-8 px-4 sm:px-8 py-8">
       <div className="grid">
         <span className="text-4xl text-center">Pathé Watcher</span>
-        <span className="italic">Get notified when tickets go live for a movie that isn&apos;t scheduled yet</span>
+        <span className="italic text-center">Get notified when tickets go live for a movie that isn&apos;t scheduled yet</span>
       </div>
 
       {loading ? (
@@ -231,7 +231,7 @@ export default function PathePage() {
           {error && <span className="text-sm text-destructive">{error}</span>}
 
           <Button type="submit" disabled={!canSubmit} variant="outline" className="rounded-none border-dotted">
-            {submitting ? "Setting up watch..." : "Notify me when tickets are live"}
+            {submitting ? "Setting up watch..." : "Notify me when tickets go live"}
           </Button>
         </form>
       )}
