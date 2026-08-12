@@ -250,7 +250,7 @@ export default function PathePage() {
                 <div className="grid min-w-0">
                   <span className="font-extrabold truncate">{watch.movieTitle}</span>
                   <span className="truncate">
-                    {watch.cinemaName} — {watch.targetDate}
+                    {watch.cinemaName} — {format(parse(watch.targetDate, DATE_FORMAT, new Date()), "dd-MM-yyyy")}
                   </span>
                 </div>
                 <Button
