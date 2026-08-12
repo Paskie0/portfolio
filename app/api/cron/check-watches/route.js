@@ -1,3 +1,4 @@
+import {Receiver} from "@upstash/qstash";
 import {getMovieCinemaDays} from "@/lib/pathe";
 import {listWatches, deleteWatch} from "@/lib/watches";
 
@@ -5,6 +6,11 @@ import {listWatches, deleteWatch} from "@/lib/watches";
 // can't pin a region, so run this on the Edge runtime instead, which uses
 // a different network path.
 export const runtime = "edge";
+
+const receiver = new Receiver({
+  currentSigningKey: process.env.QSTASH_CURRENT_SIGNING_KEY,
+  nextSigningKey: process.env.QSTASH_NEXT_SIGNING_KEY,
+});
 
 async function sendNtfyNotification(watch) {
   const message = `Tickets for ${watch.movieTitle} on ${watch.targetDate} at ${watch.cinemaName} are now LIVE!`;
@@ -20,9 +26,15 @@ async function sendNtfyNotification(watch) {
   });
 }
 
-export async function GET(request) {
-  const authHeader = request.headers.get("authorization");
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+export async function POST(request) {
+  const signature = request.headers.get("Upstash-Signature");
+  const body = await request.text();
+
+  const isValid = await receiver
+    .verify({signature, body, url: request.url})
+    .catch(() => false);
+
+  if (!isValid) {
     return Response.json({error: "Unauthorized"}, {status: 401});
   }
 
