@@ -1,5 +1,9 @@
 import {getShows} from "@/lib/pathe";
 
+// Pathé blocks requests from non-EU cloud IPs; pin this function to run
+// close to the Netherlands instead of Vercel's default US region.
+export const preferredRegion = "fra1";
+
 export async function GET() {
   try {
     const shows = await getShows();

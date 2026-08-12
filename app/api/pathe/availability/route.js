@@ -1,5 +1,9 @@
 import {getMovieCinemaDays} from "@/lib/pathe";
 
+// Pathé blocks requests from non-EU cloud IPs; pin this function to run
+// close to the Netherlands instead of Vercel's default US region.
+export const preferredRegion = "fra1";
+
 export async function GET(request) {
   const {searchParams} = new URL(request.url);
   const movieSlug = searchParams.get("movieSlug");
