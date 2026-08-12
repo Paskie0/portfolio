@@ -1,6 +1,11 @@
 import {getMovieCinemaDays} from "@/lib/pathe";
 import {listWatches, createWatch} from "@/lib/watches";
 
+// POST calls Pathé's API for validation, which blocks Vercel's default
+// Node.js function region (US). Hobby plan can't pin a region, so run this
+// on the Edge runtime instead, which uses a different network path.
+export const runtime = "edge";
+
 export async function GET() {
   try {
     const watches = await listWatches();

@@ -1,9 +1,10 @@
 import {getMovieCinemaDays} from "@/lib/pathe";
 import {listWatches, deleteWatch} from "@/lib/watches";
 
-// Pathé blocks requests from non-EU cloud IPs; pin this function to run
-// close to the Netherlands instead of Vercel's default US region.
-export const preferredRegion = "fra1";
+// Pathé blocks Vercel's default Node.js function region (US). Hobby plan
+// can't pin a region, so run this on the Edge runtime instead, which uses
+// a different network path.
+export const runtime = "edge";
 
 async function sendNtfyNotification(watch) {
   const message = `Tickets for ${watch.movieTitle} on ${watch.targetDate} at ${watch.cinemaName} are now LIVE!`;

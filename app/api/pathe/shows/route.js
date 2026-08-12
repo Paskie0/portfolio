@@ -1,8 +1,9 @@
 import {getShows} from "@/lib/pathe";
 
-// Pathé blocks requests from non-EU cloud IPs; pin this function to run
-// close to the Netherlands instead of Vercel's default US region.
-export const preferredRegion = "fra1";
+// Pathé blocks Vercel's default Node.js function region (US). Hobby plan
+// can't pin a region, so run this on the Edge runtime instead, which uses
+// a different network path.
+export const runtime = "edge";
 
 export async function GET() {
   try {
