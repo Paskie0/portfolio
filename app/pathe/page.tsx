@@ -257,7 +257,7 @@ export default function PathePage() {
                   type="button"
                   variant="outline"
                   size="sm"
-                  className="shrink-0"
+                  className="shrink-0 rounded-none border-dotted"
                   onClick={() => handleCancel(watch.id)}
                 >
                   Cancel
