@@ -176,7 +176,7 @@ export default function PathePage() {
                     {alreadyPlayingDates.map((date) => (
                       <li key={date}>
                         <Link
-                          href={`https://www.pathe.nl/nl/films/${selectedShow?.slug}/filters/date-${date}`}
+                          href={`https://www.pathe.nl/nl/films/${selectedShow?.slug}/filters/date-${date}/localisation-${cinemaSlug}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-accent-fun"

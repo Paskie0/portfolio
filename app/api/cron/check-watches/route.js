@@ -1,4 +1,5 @@
 import {Receiver} from "@upstash/qstash";
+import {format, parse} from "date-fns";
 import {getMovieCinemaDays} from "@/lib/pathe";
 import {listWatches, deleteWatch} from "@/lib/watches";
 
@@ -13,7 +14,9 @@ const receiver = new Receiver({
 });
 
 async function sendNtfyNotification(watch) {
-  const message = `Tickets for ${watch.movieTitle} on ${watch.targetDate} at ${watch.cinemaName} are now LIVE!`;
+  const shortDate = format(parse(watch.targetDate, "yyyy-MM-dd", new Date()), "dd-MM");
+  const message = `Tickets for ${watch.movieTitle} on ${shortDate} at ${watch.cinemaName} are now LIVE!`;
+  const clickUrl = `https://www.pathe.nl/nl/films/${watch.movieSlug}/filters/date-${watch.targetDate}/localisation-${watch.cinemaSlug}`;
 
   await fetch(`https://ntfy.sh/${encodeURIComponent(watch.ntfyTopic)}`, {
     method: "POST",
@@ -22,6 +25,7 @@ async function sendNtfyNotification(watch) {
       Title: "Pathé Ticket Alert!",
       Priority: "high",
       Tags: "clapper,popcorn",
+      Click: clickUrl,
     },
   });
 }
