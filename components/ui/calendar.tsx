@@ -15,6 +15,8 @@ import {
 import { cn } from "@/lib/utils"
 import { Button, buttonVariants } from "@/components/ui/button"
 
+import MenuIcon from "@/components/icons/MenuIcon";
+
 function Calendar({
   className,
   classNames,
@@ -145,16 +147,13 @@ function Calendar({
         Chevron: ({ className, orientation, ...props }) => {
           if (orientation === "left") {
             return (
-              <ChevronLeftIcon className={cn("size-4", className)} {...props} />
+              <MenuIcon classname={cn("size-2.5 rotate-90 text-muted-foreground", className)} />
             )
           }
 
           if (orientation === "right") {
             return (
-              <ChevronRightIcon
-                className={cn("size-4", className)}
-                {...props}
-              />
+              <MenuIcon classname={cn("size-2.5 rotate-270 text-muted-foreground", className)} />
             )
           }
 

@@ -203,13 +203,12 @@ export default function PathePage() {
                   id="date-picker-trigger"
                   type="button"
                   variant="outline"
-                  className="relative w-full min-w-0 justify-start rounded-none h-10.5 p-2 pr-8 text-base font-normal border border-dotted border-muted-foreground bg-transparent text-foreground shadow-none hover:bg-transparent hover:text-foreground dark:bg-transparent dark:border-muted-foreground dark:hover:bg-transparent"
+                  className="relative w-full min-w-0 justify-start rounded-none h-10.5 p-2 pr-8 text-base font-light border border-dotted border-muted-foreground bg-transparent text-muted-foreground shadow-none dark:bg-transparent dark:border-muted-foreground dark:hover:bg-transparent dark:hover:text-muted-foreground"
                 >
-                  {selectedDate ? format(selectedDate, "PPP") : "Pick a date"}
-                  <CalendarIcon className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                  {selectedDate ? format(selectedDate, "PPP") : "Pick a date..."}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
+              <PopoverContent className="w-auto p-0 bg-background rounded-none border-dotted border-muted-foreground" align="start">
                 <Calendar
                   mode="single"
                   selected={selectedDate}
@@ -243,7 +242,7 @@ export default function PathePage() {
 
           {error && <span className="text-sm text-destructive">{error}</span>}
 
-          <Button type="submit" disabled={!canSubmit} variant="outline" className="rounded-none border-dotted">
+          <Button type="submit" disabled={!canSubmit} variant="outline" className="h-10.5 bg-transparent! text-accent-fun rounded-none border-dotted border-accent-fun! hover:bg-accent-fun! hover:text-foreground! cursor-pointer">
             {submitting ? "Setting up watch..." : "Notify me when tickets go live"}
           </Button>
         </form>
