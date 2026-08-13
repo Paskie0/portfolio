@@ -3,7 +3,6 @@
 import {useEffect, useMemo, useState} from "react";
 import { format, parse } from "date-fns";
 import Link from "next/link";
-import {CalendarIcon} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {Calendar} from "@/components/ui/calendar";
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
@@ -168,24 +167,23 @@ export default function PathePage() {
           </div>
 
           {cinemaSlug && movieSlug && (
-            <div className="text-sm italic">
+            <div className="text-sm min-w-0">
               {alreadyPlayingDates.length > 0 ? (
                 <>
-                  <span>Already showing at {selectedCinema?.name} on:</span>
-                  <ul className="columns-2 list-disc pl-5 marker:text-muted-foreground">
+                  <span className="font-bold">Already showing on</span>
+                  <div className="scroll-fade-x flex gap-2 overflow-x-auto py-1 w-full min-w-0">
                     {alreadyPlayingDates.map((date) => (
-                      <li key={date}>
-                        <Link
-                          href={`https://www.pathe.nl/nl/films/${selectedShow?.slug}/filters/date-${date}/localisation-${cinemaSlug}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-accent-fun"
-                        >
-                          {format(parse(date, DATE_FORMAT, new Date()), "dd-MM-yyyy")}
-                        </Link>
-                      </li>
+                      <Link
+                        key={date}
+                        href={`https://www.pathe.nl/nl/films/${selectedShow?.slug}/filters/date-${date}/localisation-${cinemaSlug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold border border-dotted border-muted-foreground px-3 py-1 shrink-0 whitespace-nowrap text-accent-fun"
+                      >
+                        {format(parse(date, DATE_FORMAT, new Date()), "dd-MM-yyyy")}
+                      </Link>
                     ))}
-                  </ul>
+                  </div>
                 </>
               ) : (
                 <span>Not currently scheduled at {selectedCinema?.name}</span>
@@ -203,7 +201,7 @@ export default function PathePage() {
                   id="date-picker-trigger"
                   type="button"
                   variant="outline"
-                  className="relative w-full min-w-0 justify-start rounded-none h-10.5 p-2 pr-8 text-base font-light border border-dotted border-muted-foreground bg-transparent text-muted-foreground shadow-none cursor-pointer dark:bg-transparent dark:border-muted-foreground dark:hover:bg-transparent dark:hover:text-muted-foreground"
+                  className="relative w-full min-w-0 justify-start rounded-none h-10.5 p-2 pr-8 text-base font-normal border border-dotted border-muted-foreground bg-transparent shadow-none cursor-pointer dark:bg-transparent dark:border-muted-foreground dark:hover:bg-transparent dark:hover:text-muted-foreground"
                 >
                   {selectedDate ? format(selectedDate, "PPP") : "Pick a date..."}
                 </Button>
@@ -242,8 +240,8 @@ export default function PathePage() {
 
           {error && <span className="text-sm text-destructive">{error}</span>}
 
-          <Button type="submit" disabled={!canSubmit} variant="outline" className="h-10.5 bg-transparent! text-accent-fun rounded-none border-dotted border-accent-fun! hover:bg-accent-fun! hover:text-foreground! cursor-pointer">
-            {submitting ? "Setting up watch..." : "Notify me when tickets go live"}
+          <Button type="submit" disabled={!canSubmit} variant="outline" className="h-10.5 bg-transparent! font-bold text-accent-fun rounded-none border-dotted border-accent-fun! hover:bg-accent-fun! hover:text-foreground! cursor-pointer">
+            {submitting ? "Setting up watch..." : "Notify me!"}
           </Button>
         </form>
       )}
