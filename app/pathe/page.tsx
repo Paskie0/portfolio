@@ -201,7 +201,7 @@ export default function PathePage() {
                   id="date-picker-trigger"
                   type="button"
                   variant="outline"
-                  className="relative w-full min-w-0 justify-start rounded-none h-10.5 p-2 pr-8 text-base font-normal border border-dotted border-muted-foreground bg-transparent shadow-none cursor-pointer dark:bg-transparent dark:border-muted-foreground dark:hover:bg-transparent dark:hover:text-muted-foreground"
+                  className="relative w-full min-w-0 justify-start text-muted-foreground font-light rounded-none h-10.5 p-2 pr-8 text-base border border-dotted border-muted-foreground bg-transparent shadow-none cursor-pointer dark:bg-transparent dark:border-muted-foreground dark:hover:bg-transparent dark:hover:text-muted-foreground"
                 >
                   {selectedDate ? format(selectedDate, "PPP") : "Pick a date..."}
                 </Button>
