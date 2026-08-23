@@ -35,7 +35,7 @@ const doto = Doto({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Pascal de Wit",
   description: "Pascal's Portfolio",
 };
 

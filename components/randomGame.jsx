@@ -3,25 +3,35 @@
 import {useFunData} from "@/hooks/useFunData";
 import Link from "next/link";
 import Dice from "@/components/icons/Dice";
+import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
+
 
 export default function RandomGame() {
   const {randomGame, gameLoading, gameError, refetchGame} = useFunData();
 
   return gameLoading ? (
-    <span>Rolling the dice...</span>
+    <div className="flex gap-1 items-center">
+      <AnimatedShinyText delay={800}>Rolling the dice...</AnimatedShinyText>
+      <Dice className="text-accent-fun animate-[spin_3s_linear_infinite]" />
+    </div>
   ) : gameError ? (
-    <span>The dice landed on a corner...</span>
+      <div className="flex gap-1 items-center">
+        <span>The dice landed on a corner...</span>
+        <button
+          onClick={refetchGame}
+          className="cursor-pointer hover:rotate-90 duration-300">
+          <Dice className="text-accent-fun rotate-45" />
+        </button>
+      </div>
   ) : (
-    <div className="flex gap-2 items-center">
-      <Link href={`https://store.steampowered.com/app/${randomGame.appid}`} className="hover:bg-accent-fun/75">
+    <div className="flex gap-1 items-center">
+      <Link href={`https://store.steampowered.com/app/${randomGame.appid}`} target="_blank" className="hover:text-accent-fun">
         {randomGame.name}
       </Link>
-      <span className="select-none">•</span>
       <button
         onClick={refetchGame}
-        className="text-accent-fun font-bold hover:bg-accent-fun/75 hover:text-muted-foreground cursor-pointer flex items-center gap-1">
-        Reroll
-        <Dice className="text-muted-foreground" />
+        className="cursor-pointer hover:rotate-90 duration-300">
+        <Dice className="text-accent-fun" />
       </button>
     </div>
   );
