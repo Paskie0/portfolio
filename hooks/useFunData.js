@@ -13,7 +13,7 @@ export const useFunData = () => {
   const fetchGame = async () => {
     setGameLoading(true);
     setGameError(null);
-    const MIN_LOADING_TIME = 1500;
+    const MIN_LOADING_TIME = 3000;
     const startTime = Date.now();
 
     const gameResult = await Promise.allSettled([getRandomGame()]);
@@ -35,7 +35,7 @@ export const useFunData = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const MIN_LOADING_TIME = 1500;
+      const MIN_LOADING_TIME = 3000;
       const startTime = Date.now();
 
       const [gameResult, tempResult] = await Promise.allSettled([getRandomGame(), getTemperature()]);

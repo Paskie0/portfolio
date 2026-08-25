@@ -1,8 +1,13 @@
 import type {Metadata} from "next";
-import {Geist, Geist_Mono, Doto} from "next/font/google";
+import {Inter, Geist, Geist_Mono, Doto} from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
 import {ThemeProvider} from "@/components/theme-provider";
+import CursorSpotlight from "@/components/cursor-spotlight";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +25,7 @@ const doto = Doto({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Pascal de Wit",
   description: "Pascal's Portfolio",
 };
 
@@ -31,9 +36,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${doto.variable} antialiased font-doto`}>
-        <ThemeProvider attribute="class" forcedTheme="dark">
-          <Header />
+      <body className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} ${doto.variable} antialiased font-inter min-h-screen flex flex-col`}>
+        <CursorSpotlight />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>
