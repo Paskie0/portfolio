@@ -18,7 +18,7 @@ const Signature = ({className = ""}) => {
       <g clipPath="url(#clip_1)">
         <path
           transform="matrix(2.3156965,0,0,2.3152574,44.63111,61.122983)"
-          strokeWidth="4"
+          strokeWidth="5"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="transparent"
@@ -27,7 +27,7 @@ const Signature = ({className = ""}) => {
         />
         <path
           transform="matrix(2.3156965,0,0,2.3152574,895.2114,353.21333)"
-          strokeWidth="4"
+          strokeWidth="5"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="transparent"

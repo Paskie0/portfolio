@@ -4,21 +4,23 @@ import Link from "next/link";
 import Signature from "@/components/icons/Signature";
 import Location from "@/components/location";
 import RandomGame from "@/components/randomGame";
+import ThemeSwitcher from "@/components/theme-switcher";
 
 export default function Home() {
   return (
-    <main className="max-w-5xl mt-auto p-16 mx-auto bg-neutral-900 border border-muted">
+    <main className="min-h-screen lg:min-h-0 max-w-5xl lg:mt-auto p-8 lg:p-16 lg:mx-auto bg-stone-100/50 dark:bg-stone-900/50 border border-transparent lg:border-muted-foreground/50 lg:dark:border-muted">
       <div className="grid gap-16">
-        <div className="grid">
+        <div className="flex items-center justify-between">
           <Link href="/" className="relative w-30">
-            <Signature className="w-full h-full hover:scale-95 hover:text-accent-fun transition-all duration-300" />
+            <Signature className="w-full h-full hover:scale-95 text-foreground hover:text-accent-fun transition-all duration-300" />
           </Link>
+          <ThemeSwitcher />
         </div>
         <div className="grid gap-8 animate-fade-in-up [animation-delay:200ms]">
             <div className="grid gap-4 text-muted-foreground">
-            <span>Software Developer from <Location />.</span>
-            <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo asperiores sint assumenda.</span>
-              <span>Previously, worked at <Link href="/" className="text-foreground hover:text-accent-fun hover:decoration-accent-fun underline underline-offset-4 decoration-muted">Impact Academie</Link>, <Link href="/" className="text-foreground hover:text-accent-fun hover:decoration-accent-fun underline underline-offset-4 decoration-muted">Jaspers Media</Link> & <Link href="/" className="text-foreground hover:text-accent-fun hover:decoration-accent-fun underline underline-offset-4 decoration-muted">Forward Football</Link>.</span>
+            <span>Software Developer from <Location />, The Netherlands.</span>
+            <span>Currently working on side projects & exploring new tech.</span>
+              <span>Previously worked at <Link href="https://www.impact-academie.com/" target="_blank" className="text-nowrap text-foreground hover:text-accent-fun hover:decoration-accent-fun">Impact Academie</Link>, <Link href="https://www.jaspersmedia.com/" target="_blank" className="text-nowrap text-foreground hover:text-accent-fun hover:decoration-accent-fun">Jaspers Media</Link> & <Link href="https://forward.football/" target="_blank" className="text-nowrap text-foreground hover:text-accent-fun hover:decoration-accent-fun">Forward Football</Link>.</span>
             </div>
         </div>
         <div className="grid gap-2 animate-fade-in-up [animation-delay:400ms]">
@@ -26,13 +28,13 @@ export default function Home() {
                 <Project key={project.id} title={project.name} description={project.description} url={project.link} year={project.year} />
               ))}
         </div>
-        <div className="grid grid-flow-col gap-2 text-muted-foreground animate-fade-in-up [animation-delay:600ms]">
+        <div className="justify-items-center sm:justify-items-stretch sm:justify-self-stretch grid grid-flow-row sm:grid-flow-col gap-2 text-muted-foreground animate-fade-in-up [animation-delay:600ms]">
           <div className="flex gap-2">
             <Link href="https://github.com/Paskie0" className="hover:text-accent-fun">GitHub</Link>
             <span className="select-none">·</span>
             <Link href="mailto:Pascaldewit@outlook.com" className="hover:text-accent-fun">Mail</Link>
           </div>
-          <div className="flex  place-self-end font-doto font-bold">
+          <div className="flex sm:place-self-end font-doto font-bold">
             <RandomGame />
           </div>
         </div>

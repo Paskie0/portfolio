@@ -13,7 +13,7 @@ export default function Location() {
   ) : tempError ? (
     <span>No Signal...</span>
   ) : (
-    <Link href={`https://en.wikipedia.org/wiki/${CITY}`} className="group text-foreground hover:decoration-accent-fun underline underline-offset-4 decoration-muted">
+    <Link href={`https://en.wikipedia.org/wiki/${CITY}`} className="text-nowrap group text-foreground hover:decoration-accent-fun">
       <span className="group-hover:text-accent-fun">{CITY}</span><sup className="group-hover:text-accent-fun"> {temperature}°C</sup>
     </Link>
   );
