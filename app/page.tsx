@@ -8,7 +8,7 @@ import ThemeSwitcher from "@/components/theme-switcher";
 
 export default function Home() {
   return (
-    <main className="min-h-screen lg:min-h-0 max-w-5xl lg:mt-auto p-8 lg:p-16 lg:mx-auto bg-stone-100/50 dark:bg-stone-900/50 border border-transparent lg:border-muted-foreground/50 lg:dark:border-muted">
+    <main className="min-h-screen lg:min-h-0 max-w-5xl lg:mt-auto p-8 lg:p-16 lg:mx-auto bg-stone-100/75 dark:bg-stone-900/75 border border-transparent lg:border-muted-foreground/50 lg:dark:border-muted">
       <div className="grid gap-16">
         <div className="flex items-center justify-between">
           <Link href="/" className="relative w-30">
