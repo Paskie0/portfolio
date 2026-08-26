@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} ${doto.variable} antialiased font-inter min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} ${doto.variable} antialiased font-inter min-h-screen flex flex-col select-none`}>
         <CursorSpotlight />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}

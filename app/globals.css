@@ -92,6 +92,7 @@
     transform: rotate(calc(var(--theme-icon-start, 0deg) + 360deg));
     }
   }
+
 }
 
 :root {
@@ -181,18 +182,6 @@
   ::view-transition-new(root) {
     animation-duration: .4s;
   }
-}
-
-.dot-grid {
-  background-image: radial-gradient(circle, var(--dot-grid) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.dot-grid-spotlight {
-    background-image: radial-gradient(circle, var(--foreground) 1.5px, transparent 1.5px);
-  background-size: 24px 24px;
-  mask-image: radial-gradient(220px circle at var(--spotlight-x, -9999px) var(--spotlight-y, -9999px), black, transparent 80%);
-  -webkit-mask-image: radial-gradient(220px circle at var(--spotlight-x, -9999px) var(--spotlight-y, -9999px), black, transparent 80%);
 }
 
 @layer base {
