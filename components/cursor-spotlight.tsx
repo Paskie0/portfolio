@@ -1,12 +1,13 @@
 "use client";
 
 import * as React from "react";
-import {EFFECT_HINT_STORAGE_KEY} from "@/lib/effect-hint";
+import {dismissEffectHint} from "@/lib/effect-hint";
 
 const GRID_SIZE = 24;
 const EASE = 0.06;
 const SPOTLIGHT_RADIUS = 220;
 const SPOTLIGHT_FALLOFF = 0.5;
+const SPOTLIGHT_FADE_EASE = 0.1; // how quickly the spotlight fades in/out when toggled
 const RIPPLE_SPEED = 500; // px/s
 const RIPPLE_MAX_RADIUS = SPOTLIGHT_RADIUS * 2 + 150; // a bit past the spotlight's diameter
 const RIPPLE_LIFETIME = RIPPLE_MAX_RADIUS / RIPPLE_SPEED;
@@ -38,6 +39,7 @@ export default function CursorSpotlight() {
     let disabled = false;
     let holdTimeout: number | null = null;
     let ripples: Ripple[] = [];
+    let spotlightIntensity = 1;
     let frame: number | null = null;
     let width = 0;
     let height = 0;
@@ -81,7 +83,7 @@ export default function CursorSpotlight() {
         disabled = !disabled;
         holdTimeout = null;
         if (disabled) {
-          localStorage.setItem(EFFECT_HINT_STORAGE_KEY, "1");
+          dismissEffectHint();
         }
       }, HOLD_TOGGLE_MS);
     }
@@ -103,7 +105,9 @@ export default function CursorSpotlight() {
 
       const dotColor = readColor("--dot-grid");
       const spotlightColor = readColor("--foreground");
-      const spotlightVisible = !disabled;
+      const targetIntensity = disabled ? 0 : 1;
+      spotlightIntensity += (targetIntensity - spotlightIntensity) * SPOTLIGHT_FADE_EASE;
+      if (Math.abs(targetIntensity - spotlightIntensity) < 0.001) spotlightIntensity = targetIntensity;
 
       ctx!.clearRect(0, 0, width, height);
 
@@ -142,12 +146,12 @@ export default function CursorSpotlight() {
           ctx!.arc(drawX, drawY, baseRadius, 0, Math.PI * 2);
           ctx!.fill();
 
-          if (spotlightVisible) {
+          if (spotlightIntensity > 0.001) {
             const sdx = x - current.x;
             const sdy = y - current.y;
             const sdist = Math.sqrt(sdx * sdx + sdy * sdy);
             if (sdist < SPOTLIGHT_RADIUS) {
-              const alpha = Math.max(0, 1 - sdist / (SPOTLIGHT_RADIUS * SPOTLIGHT_FALLOFF));
+              const alpha = Math.max(0, 1 - sdist / (SPOTLIGHT_RADIUS * SPOTLIGHT_FALLOFF)) * spotlightIntensity;
               if (alpha > 0) {
                 ctx!.globalAlpha = alpha;
                 ctx!.beginPath();

@@ -73,6 +73,8 @@ export const EXCLUDED_GAMES = [
   "KovaaK's",
   "LEGO® Builder's Journey",
   "LEGO® DC Super-Villains",
+  "Supraland Six Inches Under",
+  "Supraworld",
   "LEGO® Harry Potter: Years 1-4",
   "LEGO® Harry Potter: Years 5-7",
   "LEGO® MARVEL Super Heroes 2",
