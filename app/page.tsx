@@ -13,7 +13,7 @@ export default function Home() {
       <div className="max-w-5xl lg:mx-auto">
         <EffectHint />
       </div>
-      <main className="select-text min-h-screen lg:min-h-0 p-8 lg:p-16 bg-stone-100/75 dark:bg-stone-900/75 border border-transparent lg:border-muted-foreground/50 lg:dark:border-muted">
+      <main className="select-text min-h-screen lg:min-h-0 p-8 xs:p-10 sm:p-16 md:p-20 lg:p-16 bg-stone-100/75 dark:bg-stone-900/75 border border-transparent lg:border-muted-foreground/50 lg:dark:border-muted">
         <div className="grid gap-16">
           <div className="flex items-center justify-between">
             <Link href="/" className="relative w-30">

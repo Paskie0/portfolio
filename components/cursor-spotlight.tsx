@@ -76,6 +76,10 @@ export default function CursorSpotlight() {
     }
 
     function handleDown(event: MouseEvent) {
+      // Left button only — otherwise a right-click spawns a ripple and,
+      // since the context menu swallows the mouseup, its hold-timer fires
+      // uninterrupted and toggles the effect off behind the menu.
+      if (event.button !== 0) return;
       if (!disabled) {
         ripples.push({x: event.clientX, y: event.clientY, start: performance.now()});
       }
@@ -88,7 +92,8 @@ export default function CursorSpotlight() {
       }, HOLD_TOGGLE_MS);
     }
 
-    function handleUp() {
+    function handleUp(event: MouseEvent) {
+      if (event.button !== 0) return;
       // A quick tap should only spawn a ripple; only a hold past the
       // threshold toggles the spotlight, and releasing never changes it.
       if (holdTimeout !== null) {
