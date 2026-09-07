@@ -35,7 +35,7 @@ export default function ThemeSwitcher() {
   }
 
   return (
-    <Button variant="ghost" size="icon" aria-label="Toggle theme" onClick={toggleTheme} className="hover:text-accent-fun duration-200 cursor-pointer hover:bg-transparent!">
+    <Button variant="ghost" size="icon" aria-label="Toggle theme" onClick={toggleTheme} className="hover:text-accent-fun focus-visible:ring-accent-fun duration-200 cursor-pointer hover:bg-transparent!">
       <span
         ref={iconRef}
         onAnimationEnd={() => setSpinning(false)}

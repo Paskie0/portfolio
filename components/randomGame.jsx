@@ -25,7 +25,7 @@ export default function RandomGame() {
       ) : gameError ? (
         <span>The dice landed on a corner...</span>
       ) : (
-        <Link href={`https://store.steampowered.com/app/${randomGame.appid}`} target="_blank" className="hover:text-accent-fun truncate min-w-0 max-w-[65vw] sm:max-w-80 md:max-w-svw">
+        <Link href={`https://store.steampowered.com/app/${randomGame.appid}`} className="hover:text-accent-fun truncate min-w-0 max-w-[65vw] sm:max-w-80 md:max-w-svw">
           {randomGame.name}
         </Link>
       )}

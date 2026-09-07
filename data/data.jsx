@@ -181,25 +181,18 @@ export const PROJECTS = [
     id: 2,
   },
   {
-    name: "Dierentuin",
-    description: "Full-stack zoo management app",
-    link: "https://github.com/Djimairo7/Dierentuin",
-    year: "2025",
-    id: 3,
-  },
-  {
-    name: "F1 Registration",
-    description: "Formula 1 tracking app",
-    link: "https://github.com/TiemcoM/F1Registration",
-    year: "2024",
-    id: 4,
-  },
-  {
     name: "The Archives",
     description: "Collection of lots of little things!",
     link: "https://stuff.paskie.dev/",
     year: "Ongoing",
-    id: 5,
+    id: 3,
+  },
+  {
+    name: "Codepen",
+    description: "Small snippets",
+    link: "https://stuff.paskie.dev/",
+    year: "Ongoing",
+    id: 4,
   },
 ];
 

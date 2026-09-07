@@ -39,6 +39,7 @@ export default function CursorSpotlight() {
     let disabled = false;
     let holdTimeout: number | null = null;
     let ripples: Ripple[] = [];
+    let hoveringPointer = false;
     let spotlightIntensity = 1;
     let frame: number | null = null;
     let width = 0;
@@ -73,6 +74,10 @@ export default function CursorSpotlight() {
         current.x = event.clientX;
         current.y = event.clientY;
       }
+      // Hide the spotlight over interactive elements so it doesn't fight
+      // with the native pointer cursor.
+      const hovered = document.elementFromPoint(event.clientX, event.clientY);
+      hoveringPointer = hovered ? getComputedStyle(hovered).cursor === "pointer" : false;
     }
 
     function handleDown(event: MouseEvent) {
@@ -110,7 +115,7 @@ export default function CursorSpotlight() {
 
       const dotColor = readColor("--dot-grid");
       const spotlightColor = readColor("--foreground");
-      const targetIntensity = disabled ? 0 : 1;
+      const targetIntensity = disabled || hoveringPointer ? 0 : 1;
       spotlightIntensity += (targetIntensity - spotlightIntensity) * SPOTLIGHT_FADE_EASE;
       if (Math.abs(targetIntensity - spotlightIntensity) < 0.001) spotlightIntensity = targetIntensity;
 
