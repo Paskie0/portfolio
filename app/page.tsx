@@ -37,7 +37,7 @@ export default function Home() {
                 <ArrowUpRight size={12} className="group-hover:text-accent-fun group-hover:translate-x-0.5 group-hover:-translate-y-0.5"/>
               </Link>
             </div>
-            <hr className="text-muted"/>
+            <hr className="text-muted-foreground/25"/>
             {PROJECTS.slice(0, 5).map((project) => (
               <Project key={project.id} title={project.name} description={project.description} url={project.link} year={project.year} />
             ))}
