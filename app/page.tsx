@@ -47,6 +47,8 @@ export default function Home() {
               <Link href="https://github.com/Paskie0" className="hover:text-accent-fun">GitHub</Link>
               <span className="select-none">·</span>
               <Link href="mailto:Pascaldewit@outlook.com" className="hover:text-accent-fun">Email</Link>
+              <span className="select-none">·</span>
+              <Link href="https://x.com/Paskie02" className="hover:text-accent-fun">X</Link>
             </div>
             <div className="flex sm:place-self-end font-doto font-bold">
               <RandomGame />

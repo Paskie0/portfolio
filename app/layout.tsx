@@ -1,21 +1,11 @@
 import type {Metadata} from "next";
-import {Inter, Geist, Geist_Mono, Doto} from "next/font/google";
+import {Inter, Doto} from "next/font/google";
 import "./globals.css";
 import {ThemeProvider} from "@/components/theme-provider";
 import CursorSpotlight from "@/components/cursor-spotlight";
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -36,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} ${doto.variable} antialiased font-inter min-h-screen flex flex-col select-none bg-stone-100 dark:bg-stone-900 lg:bg-background lg:dark:bg-background lg:justify-end lg:pt-16`}>
+      <body className={`${inter.variable} ${doto.variable} antialiased font-sans min-h-screen flex flex-col select-none bg-stone-100 dark:bg-stone-900 lg:bg-background lg:dark:bg-background lg:justify-end lg:pt-16`}>
         <CursorSpotlight />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
