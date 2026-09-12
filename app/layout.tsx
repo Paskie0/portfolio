@@ -1,7 +1,7 @@
-import type {Metadata} from "next";
-import {Inter, Doto} from "next/font/google";
+import type { Metadata } from "next";
+import { Inter, Doto } from "next/font/google";
 import "./globals.css";
-import {ThemeProvider} from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import CursorSpotlight from "@/components/cursor-spotlight";
 
 const inter = Inter({
@@ -26,9 +26,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className={`${inter.variable} ${doto.variable} antialiased font-sans min-h-screen flex flex-col select-none bg-stone-100 dark:bg-stone-900 lg:bg-background lg:dark:bg-background lg:justify-end lg:pt-16`}>
+      <body
+        className={`${inter.variable} ${doto.variable} antialiased font-sans min-h-screen flex flex-col select-none bg-stone-100 dark:bg-stone-900 lg:bg-background lg:dark:bg-background lg:justify-end lg:pt-16`}
+      >
         <CursorSpotlight />
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
       </body>

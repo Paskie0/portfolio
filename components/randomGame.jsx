@@ -1,13 +1,13 @@
 "use client";
 
-import {useRef, useState, useEffect} from "react";
-import {useFunData} from "@/hooks/useFunData";
+import { useRef, useState, useEffect } from "react";
+import { useFunData } from "@/hooks/useFunData";
 import Link from "next/link";
 import Dice from "@/components/icons/Dice";
 import { getRotationDegrees } from "@/lib/utils";
 
 export default function RandomGame() {
-  const {randomGame, gameLoading, gameError, refetchGame} = useFunData();
+  const { randomGame, gameLoading, gameError, refetchGame } = useFunData();
   const buttonRef = useRef(null);
   const [isRefetching, setIsRefetching] = useState(false);
 
@@ -17,20 +17,26 @@ export default function RandomGame() {
 
   function handleRefetch() {
     if (buttonRef.current) {
-      buttonRef.current.style.setProperty("--dice-start", `${getRotationDegrees(buttonRef.current)}deg`);
+      buttonRef.current.style.setProperty(
+        "--dice-start",
+        `${getRotationDegrees(buttonRef.current)}deg`,
+      );
     }
     setIsRefetching(true);
     refetchGame();
   }
 
   return (
-    <div className="flex gap-1 items-center min-w-0">
+    <div className="flex flex-row-reverse sm:flex-row gap-1 items-center min-w-0">
       {gameLoading ? (
         <span className="shimmer">Rolling the dice...</span>
       ) : gameError ? (
         <span>The dice landed on a corner...</span>
       ) : (
-        <Link href={`https://store.steampowered.com/app/${randomGame.appid}`} className="hover:text-accent-fun truncate min-w-0 max-w-[75vw]">
+        <Link
+          href={`https://store.steampowered.com/app/${randomGame.appid}`}
+          className="hover:text-accent-fun truncate min-w-0 max-w-[70vw] xs:m-w-[80vw] sm:max-w-[45vw] lg:max-w-80"
+        >
           {randomGame.name}
         </Link>
       )}
@@ -40,7 +46,9 @@ export default function RandomGame() {
         disabled={gameLoading}
         className={`shrink-0 cursor-pointer duration-300 disabled:cursor-default ${isRefetching ? "animate-dice-spin" : gameLoading ? "animate-dice-spin-simple" : "hover:rotate-90"}`}
       >
-        <Dice className={`rotate-90 text-accent-fun ${gameError && !gameLoading ? "rotate-45" : ""}`} />
+        <Dice
+          className={`rotate-90 text-accent-fun ${gameError && !gameLoading ? "rotate-45" : ""}`}
+        />
       </button>
     </div>
   );
