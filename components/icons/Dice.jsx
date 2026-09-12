@@ -16,7 +16,7 @@ const Dice = ({className = ""}) => {
         <path d="M11 7H11.01" stroke="transparent" strokeWidth="2.5" strokeLinecap="square" data-arcade-3="on"></path>
         <path d="M14.99 11H15" stroke="transparent" strokeWidth="2.5" strokeLinecap="square" data-arcade-3="on"></path>
         <path d="M15 15H15.01" stroke="transparent" strokeWidth="2.5" strokeLinecap="square" data-arcade-3="on"></path>
-        <path d="M11 11H11.01" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" data-arcade-1="on"></path>
+        <path d="M11 11H11.01" stroke="var(--muted-foreground)" strokeWidth="2.5" strokeLinecap="square" data-arcade-1="on"></path>
         <path d="M11 15H11.01" stroke="transparent" strokeWidth="2.5" strokeLinecap="square" data-arcade-3="on"></path>
         <path d="M11 19H11.01" stroke="transparent" strokeWidth="2.5" strokeLinecap="square" data-arcade-3="on"></path>
         <path d="M7 19H7.01" stroke="transparent" strokeWidth="2.5" strokeLinecap="square" data-arcade-2="on"></path>
@@ -26,7 +26,7 @@ const Dice = ({className = ""}) => {
         <path d="M15 23H15.01" stroke="transparent" strokeWidth="2.5" strokeLinecap="square" data-arcade-2="on"></path>
         <path d="M11 23H11.01" stroke="transparent" strokeWidth="2.5" strokeLinecap="square" data-arcade-2="on"></path>
         <path d="M15 19H15.01" stroke="transparent" strokeWidth="2.5" strokeLinecap="square" data-arcade-3="on"></path>
-        <path d="M19 19H19.01" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" data-arcade-1="on"></path>
+        <path d="M19 19H19.01" stroke="var(--muted-foreground)" strokeWidth="2.5" strokeLinecap="square" data-arcade-1="on"></path>
         <path d="M15 27H15.01" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" data-arcade-1="on"></path>
         <path d="M23 19H23.01" stroke="transparent" strokeWidth="2.5" strokeLinecap="square" data-arcade-3="on"></path>
         <path d="M19 15H19.01" stroke="transparent" strokeWidth="2.5" strokeLinecap="square" data-arcade-3="on"></path>

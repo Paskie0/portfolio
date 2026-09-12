@@ -4,7 +4,8 @@ import {EXCLUDED_GAMES} from "@/data/data";
 export async function GET() {
   try {
     const response = await fetch(
-      `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${process.env.STEAM_API_KEY}&steamid=${STEAM_ID}&include_appinfo=true&format=json`
+      `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${process.env.STEAM_API_KEY}&steamid=${STEAM_ID}&include_appinfo=true&format=json`,
+      {next: {revalidate: 1800}}
     );
 
     if (!response.ok) {

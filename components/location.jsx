@@ -3,13 +3,12 @@
 import {useFunData} from "@/hooks/useFunData";
 import {CITY} from "@/data/data";
 import Link from "next/link";
-import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 
 export default function Location() {
   const {temperature, tempLoading, tempError} = useFunData();
 
   return tempLoading ? (
-    <AnimatedShinyText delay={400}>Geolocating...</AnimatedShinyText>
+    <span className="shimmer">Geolocating...</span>
   ) : tempError ? (
     <span>No Signal...</span>
   ) : (

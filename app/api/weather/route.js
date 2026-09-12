@@ -3,7 +3,8 @@ import {CITY} from "@/data/data";
 export async function GET() {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${CITY}&aqi=no`
+      `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${CITY}&aqi=no`,
+      {next: {revalidate: 1800}}
     );
 
     if (!response.ok) {
