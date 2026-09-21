@@ -163,6 +163,13 @@ export const EXCLUDED_GAMES = [
   "Undertale",
   "Wallpaper Engine",
   "Watch Dogs: Legion",
+  "Shenmue I & II",
+  "Okami HD",
+  "FINAL FANTASY VII",
+  "CHRONO CROSS: THE RADICAL DREAMERS EDITION",
+  "Scribblenauts Unlimited",
+  "Resident Evil Revelations 2",
+  "Resident Evil Revelations",
 ];
 
 export const PROJECTS = [
@@ -210,14 +217,16 @@ export const WORK = [
   },
   {
     name: "Jaspers Media",
-    description: "Created an AI-powered tool to categorise products using a fine-tuned version of Llama 3.1 & Python",
+    description:
+      "Created an AI-powered tool to categorise products using a fine-tuned version of Llama 3.1 & Python",
     link: "https://www.jaspersmedia.com/",
     year: "2025",
     id: 2,
   },
   {
     name: "Forward Football",
-    description: "Implemented new website design & Worked on optimizing performance / SEO",
+    description:
+      "Implemented new website design & Worked on optimizing performance / SEO",
     link: "https://forward.football/",
     year: "2024",
     id: 3,

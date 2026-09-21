@@ -109,7 +109,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="flex flex-col-reverse sm:flex-row items-start sm:justify-between gap-2 font-doto font-bold text-sm text-muted-foreground animate-fade-in-up [animation-delay:600ms]">
+          <div className="flex flex-col-reverse sm:flex-row items-center sm:justify-between gap-2 font-doto font-bold text-sm text-muted-foreground animate-fade-in-up [animation-delay:600ms]">
             <DateTime />
             <RandomGame />
           </div>
